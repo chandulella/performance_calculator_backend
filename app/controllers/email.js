@@ -3,15 +3,16 @@ const nodemailer=require('nodemailer');
 const transport = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: 'chandu.sai@venturepact.com',
-    pass: 'Chandusai3$',
+    user: process.env.Email,
+    pass: process.env.PASSWORD,
   },
 });
 
 module.exports = {
   sendMail: async function(cpuUsage) {
+    console.log(">>>>",process.env.Email,process.env.PASSWORD)
     let mailOptions = {
-      from: 'chandu.sai@venturepact.com',
+      from: process.env.Email,
       to: ["chandulella77@gmail.com"],
       subject: "Generated Report",
       html: `<table>

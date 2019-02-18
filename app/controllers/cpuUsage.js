@@ -9,9 +9,9 @@ module.exports = {
              osUtils.cpuUsage(function(v){
                     cpuUsage= Math.round(v*100);
                     console.log(">>",req.query)
-                    if(req.query.sendMail){
+                    // if(req.query.sendMail){
                         sendMail.sendMail(cpuUsage)
-                    }
+                    // }
                     return res.json({ success: true,cpuUsage:cpuUsage})
                    });  
                  
